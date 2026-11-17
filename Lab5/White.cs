@@ -10,7 +10,24 @@ namespace Lab5
             double average = 0;
 
             // code here
+            int count = 0;
 
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    if (matrix[i, j] > 0)
+                    {
+                        average += matrix[i, j];
+                        count++;
+                    }
+                }
+            }
+
+            if (count > 0)
+            {
+                average /= count;
+            }
             // end
 
             return average;
@@ -20,7 +37,17 @@ namespace Lab5
             int row = 0, col = 0;
 
             // code here
-
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    if (matrix[i, j] < matrix[row, col])
+                    {
+                        row = i;
+                        col = j;
+                    }
+                }
+            }
             // end
 
             return (row, col);
